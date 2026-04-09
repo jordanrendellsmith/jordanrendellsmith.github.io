@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jordan Smith — Instructional Designer & Learning Strategist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1814;
+    --ink-mid: #3d3830;
+    --ink-light: #7a7267;
+    --ink-faint: #b8b0a4;
+    --paper: #f7f4ef;
+    --paper-warm: #ede9e2;
+    --paper-card: #faf8f5;
+    --accent: #8b3a2a;
+    --accent-light: #c4614d;
+    --accent-faint: #f0e4e1;
+    --navy: #1d2d44;
+    --navy-mid: #2e4a6a;
+    --rule: rgba(26,24,20,0.12);
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(247,244,239,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 2rem;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-name {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 56px;
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 4rem 5rem 5vw;
+    position: relative;
+  }
+
+  .hero-text::after {
+    content: '';
+    position: absolute;
+    right: 0; top: 15%; bottom: 15%;
+    width: 1px;
+    background: var(--rule);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.1s forwards;
+  }
+
+  .hero-name {
+    font-family: var(--serif);
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.0;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.2s forwards;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-weight: 300;
+    color: var(--ink-mid);
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.01em;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.3s forwards;
+  }
+
+  .hero-summary {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--ink-mid);
+    max-width: 480px;
+    margin-bottom: 3rem;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.4s forwards;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.5s forwards;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1.5px solid var(--accent);
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+
+  .btn-outline {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    background: transparent;
+    color: var(--ink-mid);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1.5px solid var(--rule);
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--ink-mid);
+    color: var(--ink);
+  }
+
+  .hero-visual {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem 5vw 5rem 4rem;
+    background: var(--paper-warm);
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeIn 0.9s 0.6s forwards;
+  }
+
+  .hero-visual::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 320px; height: 320px;
+    border: 1px solid var(--rule);
+    border-radius: 50%;
+  }
+
+  .hero-visual::after {
+    content: '';
+    position: absolute;
+    bottom: -120px; left: -60px;
+    width: 400px; height: 400px;
+    border: 1px solid var(--rule);
+    border-radius: 50%;
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5px;
+    width: 100%;
+    max-width: 400px;
+    background: var(--rule);
+    border: 1.5px solid var(--rule);
+    position: relative;
+    z-index: 1;
+  }
+
+  .stat-cell {
+    background: var(--paper-card);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .stat-cell:nth-child(1) { background: var(--navy); }
+  .stat-cell:nth-child(1) .stat-num,
+  .stat-cell:nth-child(1) .stat-label { color: rgba(255,255,255,0.9); }
+  .stat-cell:nth-child(1) .stat-label { color: rgba(255,255,255,0.55); }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2.8rem;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--accent);
+  }
+
+  .stat-cell:nth-child(1) .stat-num { color: #fff; }
+
+  .stat-label {
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    line-height: 1.4;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 5vw; }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .section-num {
+    font-family: var(--serif);
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 300;
+    color: var(--ink);
+  }
+
+  .section-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    margin-left: 1rem;
+  }
+
+  /* ── COMPETENCIES ── */
+  .competencies { background: var(--paper); }
+
+  .competency-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5px;
+    background: var(--rule);
+    border: 1.5px solid var(--rule);
+  }
+
+  .competency-card {
+    background: var(--paper-card);
+    padding: 2.5rem 2rem;
+    transition: background 0.25s;
+  }
+
+  .competency-card:hover { background: var(--accent-faint); }
+
+  .comp-icon {
+    width: 36px; height: 36px;
+    margin-bottom: 1.25rem;
+    color: var(--accent);
+  }
+
+  .comp-title {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+  }
+
+  .comp-body {
+    font-size: 0.875rem;
+    line-height: 1.75;
+    color: var(--ink-mid);
+    font-weight: 300;
+  }
+
+  .comp-tags {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.65rem;
+    border: 1px solid var(--rule);
+    color: var(--ink-light);
+  }
+
+  /* ── PORTFOLIO ── */
+  .portfolio { background: var(--paper-warm); }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .portfolio-card {
+    background: var(--paper-card);
+    border: 1.5px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s, box-shadow 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .portfolio-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(26,24,20,0.08);
+  }
+
+  .card-thumb {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-thumb-rise {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  }
+
+  .card-thumb-placeholder {
+    background: var(--paper-warm);
+    border-bottom: 1.5px dashed var(--rule);
+  }
+
+  .thumb-label {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.05em;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .thumb-placeholder-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .thumb-icon-rise {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .rise-badge {
+    width: 64px; height: 64px;
+    background: rgba(255,255,255,0.12);
+    border: 1.5px solid rgba(255,255,255,0.25);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #fff;
+  }
+
+  .card-body {
+    padding: 1.75rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-type {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+
+  .card-title {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .card-desc {
+    font-size: 0.875rem;
+    line-height: 1.75;
+    color: var(--ink-mid);
+    font-weight: 300;
+    flex: 1;
+  }
+
+  .card-meta {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .card-tools {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .card-link {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-light);
+    padding-bottom: 1px;
+    transition: color 0.2s;
+  }
+
+  .card-link:hover { color: var(--ink); border-color: var(--ink); }
+
+  .card-link-disabled {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    cursor: default;
+  }
+
+  .coming-soon-badge {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    background: rgba(247,244,239,0.9);
+    border: 1px solid var(--rule);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    padding: 0.3rem 0.65rem;
+  }
+
+  /* ── CREDENTIALS ── */
+  .credentials { background: var(--paper); }
+
+  .cred-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+
+  .cred-group { }
+
+  .cred-group-title {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .cred-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+
+  .cred-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .cred-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 0.55rem;
+    flex-shrink: 0;
+  }
+
+  .cred-name {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .cred-org {
+    font-size: 0.8rem;
+    color: var(--ink-light);
+    font-weight: 300;
+  }
+
+  /* ── CONTACT ── */
+  .contact {
+    background: var(--navy);
+    color: rgba(255,255,255,0.85);
+    padding: 5rem 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-text {}
+
+  .contact-heading {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 0.75rem;
+    line-height: 1.1;
+  }
+
+  .contact-sub {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+    max-width: 400px;
+    line-height: 1.7;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 240px;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 300;
+    transition: color 0.2s;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .contact-link:hover { color: #fff; }
+
+  .contact-link:last-child { border-bottom: none; }
+
+  .contact-link-icon {
+    width: 28px; height: 28px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: var(--ink-light);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-text { padding: 3rem 1.5rem 2rem; }
+    .hero-text::after { display: none; }
+    .hero-visual { padding: 2.5rem 1.5rem 3rem; }
+    .stat-grid { max-width: 100%; }
+    .cred-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .contact { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-name">Jordan Smith</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#credentials">Credentials</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="about">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Instructional Designer &amp; Learning Strategist</p>
+    <h1 class="hero-name">Jordan<br><em>Smith</em></h1>
+    <p class="hero-title">PhD &nbsp;·&nbsp; QM Certified &nbsp;·&nbsp; NCR-Based</p>
+    <p class="hero-summary">
+      Thirteen years designing, building, and measuring learning experiences across 22 programs and 105+ course sections — with a curriculum development, quality assurance, and communications practice that translates directly to corporate and defence-sector L&amp;D. I bring the rigour of academic instructional design to teams that need content that actually changes behaviour.
+    </p>
+    <div class="hero-cta">
+      <a href="#portfolio" class="btn-primary">View Portfolio</a>
+      <a href="https://www.linkedin.com/in/jordanrendellsmith" target="_blank" rel="noopener" class="btn-outline">LinkedIn</a>
+      <!-- Replace YOUR_EMAIL_HERE with your actual email address -->
+      <a href="mailto:YOUR_EMAIL_HERE" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="stat-grid">
+      <div class="stat-cell">
+        <span class="stat-num">13+</span>
+        <span class="stat-label">Years designing learning</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-num">105+</span>
+        <span class="stat-label">Course sections delivered</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-num">22</span>
+        <span class="stat-label">Programs served</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-num">4.8<span style="font-size:1.4rem">/5</span></span>
+        <span class="stat-label">Teaching evaluation avg.</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-num">21</span>
+        <span class="stat-label">QM peer reviews conducted</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-num">92</span>
+        <span class="stat-label">Courses consulted on</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPETENCIES -->
+<section class="competencies" id="competencies">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">What I Bring</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="competency-grid">
+
+    <div class="competency-card">
+      <svg class="comp-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="4" y="6" width="28" height="20" rx="1"/>
+        <path d="M12 30h12M18 26v4"/>
+        <path d="M10 14l4 4 8-8"/>
+      </svg>
+      <h3 class="comp-title">Instructional Design &amp; Curriculum Development</h3>
+      <p class="comp-body">Full-lifecycle instructional design from needs analysis through evaluation. Experienced in ADDIE, backwards design, and Quality Matters standards. Led a 200-page program quality review generating 20 prioritized curriculum recommendations.</p>
+      <div class="comp-tags">
+        <span class="tag">ADDIE</span>
+        <span class="tag">Backwards Design</span>
+        <span class="tag">Learning Outcomes</span>
+        <span class="tag">Needs Analysis</span>
+      </div>
+    </div>
+
+    <div class="competency-card">
+      <svg class="comp-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="18" cy="18" r="13"/>
+        <path d="M18 10v8l5 3"/>
+        <circle cx="18" cy="18" r="2" fill="currentColor" stroke="none"/>
+      </svg>
+      <h3 class="comp-title">Learning Quality Assurance</h3>
+      <p class="comp-body">Quality Matters Certified Peer Reviewer with 21 completed reviews. Applied QM's 43-point standard to hybrid and online course design across institutional programs. Experienced in HOQAS and institutional quality frameworks.</p>
+      <div class="comp-tags">
+        <span class="tag">Quality Matters</span>
+        <span class="tag">HOQAS</span>
+        <span class="tag">Course Review</span>
+        <span class="tag">Online Learning</span>
+      </div>
+    </div>
+
+    <div class="competency-card">
+      <svg class="comp-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M6 10h24M6 18h16M6 26h20"/>
+        <circle cx="28" cy="26" r="4"/>
+        <path d="M26.5 26h3M28 24.5v3"/>
+      </svg>
+      <h3 class="comp-title">Content &amp; Communications</h3>
+      <p class="comp-body">Published open textbook author (eCampusOntario). Thirteen years producing professional training content, rubrics, guides, and communications materials. Experienced in writing for diverse audiences including ESL learners, executives, and technical SMEs.</p>
+      <div class="comp-tags">
+        <span class="tag">Technical Writing</span>
+        <span class="tag">Instructional Writing</span>
+        <span class="tag">OER</span>
+        <span class="tag">Copy Editing</span>
+      </div>
+    </div>
+
+    <div class="competency-card">
+      <svg class="comp-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="5" y="8" width="16" height="12" rx="1"/>
+        <rect x="15" y="16" width="16" height="12" rx="1"/>
+        <path d="M13 8V6M23 20v-2"/>
+      </svg>
+      <h3 class="comp-title">Learning Technology</h3>
+      <p class="comp-body">Hands-on with Articulate Rise 360 (in active portfolio development), Brightspace LMS, H5P, Camtasia, MS Office, and Adobe Creative Suite. Daily practitioner of generative AI tools since 2022, including AI literacy curriculum integration.</p>
+      <div class="comp-tags">
+        <span class="tag">Articulate Rise 360</span>
+        <span class="tag">Brightspace</span>
+        <span class="tag">H5P</span>
+        <span class="tag">AI Literacy</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Portfolio</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="portfolio-grid">
+
+    <!-- CARD 1: Rise 360 Microteach (placeholder) -->
+    <div class="portfolio-card">
+      <div class="card-thumb card-thumb-rise">
+        <div class="thumb-icon-rise">
+          <div class="rise-badge">R</div>
+          <span class="thumb-label">Articulate Rise 360</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="card-type">E-Learning Module &nbsp;·&nbsp; Articulate Rise 360</p>
+        <h3 class="card-title">Microteach Module</h3>
+        <!-- Replace the description below with a brief summary of your actual microteach topic -->
+        <p class="card-desc">An interactive e-learning module demonstrating instructional sequencing, learner engagement strategies, and knowledge-check design — built in Articulate Rise 360 as a proof-of-concept microteach. <em>Link coming soon.</em></p>
+        <div class="card-meta">
+          <div class="card-tools">
+            <span class="tag">Rise 360</span>
+            <span class="tag">Microlearning</span>
+          </div>
+          <!-- Replace # with your Articulate Review 360 share link when ready -->
+          <span class="card-link-disabled">Coming Soon</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2: Placeholder -->
+    <div class="portfolio-card">
+      <div class="card-thumb card-thumb-placeholder">
+        <div class="coming-soon-badge">In Progress</div>
+        <span class="thumb-placeholder-label">Next Project</span>
+      </div>
+      <div class="card-body">
+        <p class="card-type">E-Learning Module</p>
+        <h3 class="card-title">Project Title</h3>
+        <p class="card-desc" style="color:var(--ink-faint); font-style:italic;">This project is currently in development. Check back soon.</p>
+        <div class="card-meta">
+          <div class="card-tools"></div>
+          <span class="card-link-disabled">Coming Soon</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 3: Placeholder -->
+    <div class="portfolio-card">
+      <div class="card-thumb card-thumb-placeholder">
+        <div class="coming-soon-badge">In Progress</div>
+        <span class="thumb-placeholder-label">Next Project</span>
+      </div>
+      <div class="card-body">
+        <p class="card-type">E-Learning Module</p>
+        <h3 class="card-title">Project Title</h3>
+        <p class="card-desc" style="color:var(--ink-faint); font-style:italic;">This project is currently in development. Check back soon.</p>
+        <div class="card-meta">
+          <div class="card-tools"></div>
+          <span class="card-link-disabled">Coming Soon</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="credentials" id="credentials">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Credentials</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="cred-layout">
+    <div>
+      <p class="cred-group-title">Education</p>
+      <ul class="cred-list">
+        <li class="cred-item">
+          <span class="cred-dot"></span>
+          <div>
+            <p class="cred-name">PhD, English Language &amp; Literature</p>
+            <p class="cred-org">Queen's University, Kingston ON</p>
+          </div>
+        </li>
+        <li class="cred-item">
+          <span class="cred-dot"></span>
+          <div>
+            <p class="cred-name">Master of Arts, English</p>
+            <p class="cred-org">University of Victoria, Victoria BC</p>
+          </div>
+        </li>
+        <li class="cred-item">
+          <span class="cred-dot"></span>
+          <div>
+            <p class="cred-name">Bachelor of Arts, First-Class Honours, English</p>
+            <p class="cred-org">University of Victoria, Victoria BC</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="cred-group-title">Professional Certifications &amp; Training</p>
+      <ul class="cred-list">
+        <li class="cred-item">
+          <span class="cred-dot"></span>
+          <div>
+            <p class="cred-name">Quality Matters Certified Peer Reviewer</p>
+            <p class="cred-org">MarylandOnline / Algonquin College &nbsp;·&nbsp; 21 reviews completed</p>
+          </div>
+        </li>
+        <li class="cred-item">
+          <span class="cred-dot"></span>
+          <div>
+            <p class="cred-name">Transform Classroom Training to E-Learning with Articulate 360</p>
+            <p class="cred-org">LinkedIn Learning, 2026</p>
+          </div>
+        </li>
+        <li class="cred-item">
+          <span class="cred-dot"></span>
+          <div>
+            <p class="cred-name">Curriculum Development and Renewal Series</p>
+            <p class="cred-org">Algonquin College, 2022</p>
+          </div>
+        </li>
+        <li class="cred-item">
+          <span class="cred-dot"></span>
+          <div>
+            <p class="cred-name">CTDP Certification</p>
+            <p class="cred-org">I4PL &nbsp;·&nbsp; In progress</p>
+          </div>
+        </li>
+        <li class="cred-item">
+          <span class="cred-dot"></span>
+          <div>
+            <p class="cred-name">120-Hour Advanced TESOL Certificate</p>
+            <p class="cred-org">OnTESOL (TESL Canada Certified), 2019</p>
+          </div>
+        </li>
+        <li class="cred-item">
+          <span class="cred-dot"></span>
+          <div>
+            <p class="cred-name">Faculty Learning Program</p>
+            <p class="cred-org">Algonquin College, 2019–2020</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="cred-group-title">Selected Publications &amp; Projects</p>
+      <ul class="cred-list">
+        <li class="cred-item">
+          <span class="cred-dot"></span>
+          <div>
+            <p class="cred-name">Communication at Work <em>(open textbook, 2nd ed. in development)</em></p>
+            <p class="cred-org">eCampusOntario &nbsp;·&nbsp; Sole Author &amp; Project Lead</p>
+          </div>
+        </li>
+        <li class="cred-item">
+          <span class="cred-dot"></span>
+          <div>
+            <p class="cred-name">OER Implementation Guide</p>
+            <p class="cred-org">Algonquin Innovation Fund ($4,000) &nbsp;·&nbsp; Sole Author</p>
+          </div>
+        </li>
+        <li class="cred-item">
+          <span class="cred-dot"></span>
+          <div>
+            <p class="cred-name">Business Administration (Core) Program Quality Review</p>
+            <p class="cred-org">PQR Team Lead &nbsp;·&nbsp; 200-page evaluation, 20 recommendations</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="cred-group-title">Selected Awards &amp; Grants</p>
+      <ul class="cred-list">
+        <li class="cred-item">
+          <span class="cred-dot"></span>
+          <div>
+            <p class="cred-name">eCampusOntario Open Textbook Initiative</p>
+            <p class="cred-org">$9,000 &nbsp;·&nbsp; 2017–2018</p>
+          </div>
+        </li>
+        <li class="cred-item">
+          <span class="cred-dot"></span>
+          <div>
+            <p class="cred-name">SSHRC Doctoral Fellowship</p>
+            <p class="cred-org">Social Sciences &amp; Humanities Research Council &nbsp;·&nbsp; $40,000</p>
+          </div>
+        </li>
+        <li class="cred-item">
+          <span class="cred-dot"></span>
+          <div>
+            <p class="cred-name">Ontario Graduate Scholarship (×2)</p>
+            <p class="cred-org">Queen's University &nbsp;·&nbsp; $15,000 each</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-text">
+    <h2 class="contact-heading">Let's talk<br><em style="font-family:var(--serif); font-style:italic; font-weight:300">learning.</em></h2>
+    <p class="contact-sub">Based in Kanata, Ontario. Open to L&amp;D, instructional design, and corporate communications opportunities across the National Capital Region and remote.</p>
+  </div>
+  <div class="contact-links">
+    <!-- Replace YOUR_EMAIL_HERE with your actual email address -->
+    <a href="mailto:YOUR_EMAIL_HERE" class="contact-link">
+      <span class="contact-link-icon">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="1" y="3" width="11" height="8" rx="0.5"/>
+          <path d="M1 3.5l5.5 4 5.5-4"/>
+        </svg>
+      </span>
+      YOUR_EMAIL_HERE
+    </a>
+    <a href="https://www.linkedin.com/in/jordanrendellsmith" target="_blank" rel="noopener" class="contact-link">
+      <span class="contact-link-icon">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="currentColor">
+          <path d="M2.5 4.5h2V11h-2zM3.5 3.5a1 1 0 100-2 1 1 0 000 2zM5.5 4.5h1.8v.9h.02c.25-.47.87-1 1.78-1C11.1 4.4 11.5 5.7 11.5 7.5V11H9.5V7.9c0-.76-.01-1.74-1.06-1.74-1.06 0-1.22.83-1.22 1.68V11H5.5V4.5z"/>
+        </svg>
+      </span>
+      linkedin.com/in/jordanrendellsmith
+    </a>
+    <a href="https://jordanrendellsmith.github.io" target="_blank" rel="noopener" class="contact-link">
+      <span class="contact-link-icon">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="6.5" cy="6.5" r="5"/>
+          <path d="M1.5 6.5h10M6.5 1.5c-2 2-2 7 0 9M6.5 1.5c2 2 2 7 0 9"/>
+        </svg>
+      </span>
+      <!-- Update this URL once your GitHub Pages site is live -->
+      jordanrendellsmith.github.io
+    </a>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Jordan Smith &nbsp;·&nbsp; Kanata, Ontario
+</footer>
+
+</body>
+</html>
