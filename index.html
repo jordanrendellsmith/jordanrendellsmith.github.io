@@ -398,6 +398,20 @@
     overflow: hidden;
   }
 
+  .card-thumb::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: inherit;
+    background-size: cover;
+    background-position: inherit;
+    transition: transform 0.4s ease;
+  }
+
+  .portfolio-card:hover .card-thumb::after {
+    transform: scale(1.06);
+  }
+
   .card-thumb-rise {
     background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
   }
