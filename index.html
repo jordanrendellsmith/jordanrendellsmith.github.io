@@ -370,7 +370,7 @@
 
   .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(3, minmax(280px, 1fr));
     gap: 1.5rem;
   }
 
@@ -695,6 +695,11 @@
     .nav-links { display: none; }
     section { padding: 4rem 1.5rem; }
     .contact { flex-direction: column; }
+   .portfolio-grid { grid-template-columns: 1fr; }
+  }
+
+   @media (max-width: 1000px) and (min-width: 769px) {
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
 </head>
@@ -854,7 +859,24 @@
 
   <div class="portfolio-grid">
 
-<!-- CARD 1: Rise 360 Microteach -->
+<!-- CARD 1 (row 1): Tailboard Talk 2.0 Rise 360 Microteach -->
+    <div class="portfolio-card">
+      <div class="card-thumb" onclick="window.open('https://jordanrendellsmith.github.io/microteach-tailboard2/index.html','_blank')" style="cursor:pointer; height:200px; background-image:url('tailboard-thumb.jpg'); background-size:cover; background-position:center top;">
+      </div>
+      <div class="card-body">
+        <p class="card-type">eLearning Module &nbsp;·&nbsp; Articulate Rise 360</p>
+        <h3 class="card-title">Tailboard Talk 2.0: Job Briefings for a Modernizing Grid</h3>
+        <p class="card-desc">An interactive branching-scenario eLearning module updating the standard pre-job safety briefing ("tailboard talk") for grid-modernization-era hazards — automated switching and distributed energy resource backfeed — for electrical utility field crews. Built in Articulate Rise 360 as a proof-of-concept microteach grounded in a real utility's public strategic direction, based on a <a href="tailboard_needs_analysis.pdf" target="_blank" rel="noopener noreferrer">needs analysis</a> and preparatory <a href="tailboard_storyboard.pdf" target="_blank" rel="noopener noreferrer">storyboard</a>.</p>
+        <div class="card-meta">
+          <div class="card-tools">
+            <span class="tag">Rise 360</span>
+            <span class="tag">Branching Scenario</span>
+          </div>
+          <a href="https://jordanrendellsmith.github.io/microteach-tailboard2/index.html" target="_blank" rel="noopener" class="card-link">View Module →</a>
+        </div>
+      </div>
+    </div>
+<!-- CARD 2 (row 1): CFITES Rise 360 Microteach -->
     <div class="portfolio-card">
       <div class="card-thumb" onclick="window.open('https://jordanrendellsmith.github.io/microteach-cfites/index.html','_blank')" style="cursor:pointer; height:200px; background-image:url('cfites-thumb.gif'); background-size:cover; background-position:center top;">
       </div>
@@ -871,7 +893,24 @@
         </div>
       </div>
     </div>
-<!-- CARD 2: Change Communications Microteach -->
+<!-- CARD 3 (row 1): Communication at Work textbook -->
+    <div class="portfolio-card">
+      <div class="card-thumb" onclick="window.open('https://ecampusontario.pressbooks.pub/communicationatwork/','_blank')" style="cursor:pointer; height:200px; background-image:url('textbook-thumb.gif'); background-size:cover; background-position:center top;">
+      </div>
+      <div class="card-body">
+        <p class="card-type">Open Textbook &nbsp;·&nbsp; eCampusOntario</p>
+        <h3 class="card-title">Communication at Work</h3>
+        <p class="card-desc">A college-to-career guide to professional communication, organized across three units: Communication Fundamentals, Applied Writing, and Oral Communication. Published through eCampusOntario's Open Library; now in its second edition (2026). Licensed Creative Commons and freely available in multiple AODA-compliant formats. Adopted as the required text for all first-year Communications courses at Algonquin College and in use at 12+ North American post-secondary institutions, reaching 10,000+ learners a year and visisted by 500,000+ unique users since 2019."</p>
+        <div class="card-meta">
+          <div class="card-tools">
+            <span class="tag">OER</span>
+            <span class="tag">Content Design</span>
+          </div>
+          <a href="https://ecampusontario.pressbooks.pub/communicationatwork/" target="_blank" rel="noopener" class="card-link">Read Book →</a>
+        </div>
+      </div>
+    </div>
+<!-- CARD 4 (row 2): Change Communications Microteach -->
     <div class="portfolio-card">
       <div class="card-thumb" onclick="window.open('https://jordanrendellsmith.github.io/microteach-change/index.html','_blank')" style="cursor:pointer; height:200px; background-image:url('change-thumb.jpg'); background-size:cover; background-position:center top;">
       </div>
@@ -888,7 +927,7 @@
         </div>
       </div>
     </div>
-<!-- CARD 3: Audit Materiality Microteach -->
+<!-- CARD 5 (row 2): Audit Materiality Microteach -->
     <div class="portfolio-card">
       <div class="card-thumb" onclick="window.open('https://jordanrendellsmith.github.io/microteach-materiality/index.html','_blank')" style="cursor:pointer; height:200px; background-image:url('materiality-thumb.gif'); background-size:cover; background-position:center top;">
       </div>
@@ -902,23 +941,6 @@
             <span class="tag">Audit Materiality</span>
           </div>
           <a href="https://jordanrendellsmith.github.io/microteach-materiality/index.html" target="_blank" rel="noopener" class="card-link">View Module →</a>
-        </div>
-      </div>
-    </div>
-<!-- CARD 4: Communication at Work textbook -->
-    <div class="portfolio-card">
-      <div class="card-thumb" onclick="window.open('https://ecampusontario.pressbooks.pub/communicationatwork/','_blank')" style="cursor:pointer; height:200px; background-image:url('textbook-thumb.gif'); background-size:cover; background-position:center top;">
-      </div>
-      <div class="card-body">
-        <p class="card-type">Open Textbook &nbsp;·&nbsp; eCampusOntario</p>
-        <h3 class="card-title">Communication at Work</h3>
-        <p class="card-desc">A college-to-career guide to professional communication, organized across three units: Communication Fundamentals, Applied Writing, and Oral Communication. Published through eCampusOntario's Open Library; now in its second edition (2026). Licensed Creative Commons and freely available in multiple AODA-compliant formats. Adopted as the required text for all first-year Communications courses at Algonquin College and in use at 12+ North American post-secondary institutions, reaching 10,000+ learners a year and visisted by 500,000+ unique users since 2019."</p>
-        <div class="card-meta">
-          <div class="card-tools">
-            <span class="tag">OER</span>
-            <span class="tag">Content Design</span>
-          </div>
-          <a href="https://ecampusontario.pressbooks.pub/communicationatwork/" target="_blank" rel="noopener" class="card-link">Read Book →</a>
         </div>
       </div>
     </div>
